@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Medal, Palette, Users, Building2, PhoneCall, LayoutGrid, Layers, Phone, Image as ImageIcon } from "lucide-react";
 import aboutheader from "@/assets/aboutheader.png";
@@ -55,15 +55,15 @@ function AboutHero() {
           </motion.p>
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap items-center gap-4 pt-6">
-            <button className="flex items-center justify-center gap-3 rounded-[4px] bg-[#1a224a] text-white px-7 py-3 text-sm font-medium hover:bg-opacity-90 transition-all shadow-md min-w-[145px]">
+            <Link to="/contact" className="flex items-center justify-center gap-3 rounded-[4px] bg-[#1a224a] text-white px-7 py-3 text-sm font-medium hover:bg-opacity-90 transition-all shadow-md min-w-[145px]">
               <Phone className="h-4 w-4 text-white/80" /> Contact Us
-            </button>
-            <button className="flex items-center justify-center gap-3 rounded-[4px] bg-[#cca651] text-white px-7 py-3 text-sm font-medium hover:bg-opacity-90 transition-all shadow-md min-w-[145px]">
+            </Link>
+            <Link to="/work" className="flex items-center justify-center gap-3 rounded-[4px] bg-[#cca651] text-white px-7 py-3 text-sm font-medium hover:bg-opacity-90 transition-all shadow-md min-w-[145px]">
               <ImageIcon className="h-4 w-4 text-white/80" /> Our Work
-            </button>
-            <button className="flex items-center justify-center gap-3 rounded-[4px] bg-black/5 backdrop-blur-sm border border-[#cca651] text-[#1a224a] px-7 py-3 text-sm font-semibold hover:bg-white/50 transition-all shadow-sm min-w-[145px]">
+            </Link>
+            <Link to="/services" className="flex items-center justify-center gap-3 rounded-[4px] bg-black/5 backdrop-blur-sm border border-[#cca651] text-[#1a224a] px-7 py-3 text-sm font-semibold hover:bg-white/50 transition-all shadow-sm min-w-[145px]">
               <Palette className="h-4 w-4 text-[#cca651]" /> Our Services
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -100,9 +100,9 @@ function OurJourney() {
           <div className="font-signature text-4xl text-[color:var(--gold)] pt-2 pb-4">
             Nakshikar's Studio
           </div>
-          <button className="inline-flex items-center gap-2 rounded-full bg-[color:var(--royal-deep)] text-white px-8 py-3.5 text-sm font-medium hover:bg-[color:var(--gold)] transition-colors shadow-lg">
+          <Link to="/work" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--royal-deep)] text-white px-8 py-3.5 text-sm font-medium hover:bg-[color:var(--gold)] transition-colors shadow-lg">
             Explore More <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
         <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {stats.map((s, i) => (
@@ -196,9 +196,9 @@ function Milestones() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-20 gap-6">
           <SectionEyebrow text="Our Milestones" />
-          <button className="inline-flex items-center gap-2 rounded-xl bg-[color:var(--royal-deep)] text-white px-7 py-3 text-sm font-medium shadow-soft hover:bg-[color:var(--gold)] transition-colors">
+          <Link to="/work" className="inline-flex items-center gap-2 rounded-xl bg-[color:var(--royal-deep)] text-white px-7 py-3 text-sm font-medium shadow-soft hover:bg-[color:var(--gold)] transition-colors">
             Explore More
-          </button>
+          </Link>
         </div>
 
         <div className="relative">
@@ -251,9 +251,9 @@ function InsideStudio() {
               <img src={img} alt="Studio life" className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
               {i === images.length - 1 && (
                 <div className="absolute inset-0 bg-black/50 flex items-end justify-center pb-8 backdrop-blur-[2px]">
-                  <button className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-[color:var(--royal-deep)] backdrop-blur-md border border-white/20 text-white px-6 py-2.5 text-xs tracking-wider uppercase font-medium transition-colors">
+                  <Link to="/work" className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-[color:var(--royal-deep)] backdrop-blur-md border border-white/20 text-white px-6 py-2.5 text-xs tracking-wider uppercase font-medium transition-colors">
                     Explore More
-                  </button>
+                  </Link>
                 </div>
               )}
             </motion.div>
@@ -289,13 +289,13 @@ function FirstProjectCTA() {
           <p className="text-white/80 text-xl font-light">Let's create something extraordinary together.</p>
         </div>
         
-        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-5">
+        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-4">
           {cards.map((c, i) => (
-            <a href={c.link} key={i} className="glass-dark border border-[color:var(--gold)]/30 rounded-3xl p-8 w-40 sm:w-44 flex flex-col items-center text-center hover:bg-white/10 hover:border-[color:var(--gold)] hover:-translate-y-2 transition-all duration-300">
-              <c.icon className="h-10 w-10 text-[color:var(--gold)] mb-5 stroke-[1.5]" />
-              <div className="text-white text-base font-medium mb-1.5">{c.label}</div>
+            <Link to={c.link} key={i} className="glass-dark border border-[color:var(--gold)]/30 rounded-2xl p-5 w-36 sm:w-40 flex flex-col items-center text-center hover:bg-white/10 hover:border-[color:var(--gold)] hover:-translate-y-2 transition-all duration-300">
+              <c.icon className="h-7 w-7 text-[color:var(--gold)] mb-3 stroke-[1.5]" />
+              <div className="text-white text-sm font-medium mb-1">{c.label}</div>
               <div className="text-white/60 text-[10px] uppercase tracking-[0.15em]">{c.sub}</div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
